@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Northwind.EntityModels.Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title text-center" style="float: left">List of Category</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="OrderDataTable" width="100%" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Category Name</th>
+                                        <th>Description</th>
+                                        <th>Picture</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.CategoryId</td>
+                                            <td>@item.CategoryName</td>
+                                            <td>
+                                                @item.Description
+                                            </td>
+                                            <td>
+                                                <img src="~/images/category@(item.CategoryId).jpeg" alt="Image" style="width: 150px; height: auto;" />
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                                |
+                                                <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-info btn-sm">Details</a>
+                                                |
+                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
